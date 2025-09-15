@@ -2,7 +2,6 @@
   --offset: 20px;
 
   overflow: auto;
-  /* width: 100%; */
   white-space: nowrap;
   margin-inline: calc(var(--offset) * -1);
   padding-inline: var(--offset);
