@@ -1,9 +1,10 @@
 .characterEditor {
+  isolation: isolate;
+
   padding-top: 128px;
   padding-bottom: 64px;
-}
-
-.maxWidthWrapper {
+  min-height: 100vh;
+  min-height: 100svh;
 }
 
 .header {
@@ -24,7 +25,118 @@
 }
 
 .characterWrapper {
+  position: fixed;
+  min-height: 500px;
 }
 
 .controlColumn {
+}
+
+.maxWidthWrapper > .header {
+  width: 65%;
+}
+
+.maxWidthWrapper > .controlColumn {
+  width: 50%;
+}
+
+.characterWrapper {
+  --reserved-space: 0.3;
+  --avatar-size: 500px;
+
+  width: var(--avatar-size);
+  margin-right: calc(
+    (100vw - 1024px) / 2
+  ); /* Relative to container's margin size */
+}
+
+.characterEditor .characterWrapper {
+  top: 0;
+  right: calc((1024px * var(--reserved-space)) - var(--avatar-size));
+}
+
+.characterEditor .characterWrapper {
+  margin-top: 128px;
+  margin-bottom: 64px;
+}
+
+/* Perspective Decoration */
+.characterEditor::before {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  background: hsl(195deg, 20%, 86%);
+  width: 100svw;
+  height: 40svh;
+}
+
+.characterEditor .maxWidthWrapper {
+  position: relative;
+}
+
+@media (max-width: 1199.98px) {
+  .characterEditor .characterWrapper {
+    right: 0;
+  }
+}
+
+/* Mobile Screen */
+@media (max-width: 899.98px) {
+  .characterEditor {
+    padding-top: 64px;
+    height: 100vh;
+  }
+
+  .characterEditor::before {
+    display: none;
+  }
+
+  .characterWrapper {
+    --reserved-size: 0;
+
+    width: min(100%, 400px);
+    margin-right: 0;
+  }
+
+  .maxWidthWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .maxWidthWrapper > .header {
+    width: 100%;
+  }
+
+  .maxWidthWrapper > .controlColumn {
+    width: auto;
+    overflow-x: auto;
+    margin-inline: -32px;
+    padding-inline: 32px;
+  }
+
+  .characterEditor .characterWrapper {
+    top: unset;
+    bottom: 0;
+    left: 0;
+    margin-inline: auto;
+    margin-bottom: 0;
+  }
+
+  .title {
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .controlColumn {
+    display: flex;
+    column-gap: 24px;
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox, Safari 18.2+, Chromium 121+ */
+  }
+
+  .controlColumn::-webkit-scrollbar {
+    display: none; /* Older Safari and Chromium */
+  }
 }
