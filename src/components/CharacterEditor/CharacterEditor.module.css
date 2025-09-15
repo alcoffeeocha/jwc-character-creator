@@ -76,7 +76,7 @@
 
 @media (max-width: 1199.98px) {
   .characterEditor .characterWrapper {
-    right: 0;
+    right: -10%;
   }
 }
 
@@ -94,8 +94,12 @@
   .characterWrapper {
     --reserved-size: 0;
 
-    width: min(100%, 400px);
+    width: min(100%, 350px);
     margin-right: 0;
+  }
+
+  .characterEditor .characterWrapper {
+    right: 0;
   }
 
   .maxWidthWrapper {
