@@ -1,8 +1,8 @@
 .buttonRow {
-  --offset: 20px;
+  --offset: 22px;
 
   overflow: auto;
   white-space: nowrap;
   margin-inline: calc(var(--offset) * -1);
-  padding-inline: var(--offset);
+  padding: var(--offset);
 }
